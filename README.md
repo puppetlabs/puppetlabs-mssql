@@ -6,7 +6,7 @@ This module installs Microsoft SQL Server 2008R2 on Windows 2008R2.
 
 This module depends on DISM module to enable .net 3.5 on Windows Server:
 
-* [dism module](https://github.com/nanliu/puppet-dism)
+* [dism module](http://forge.puppetlabs.com/puppetlabs/dism)
 
 ## Configuration
 
