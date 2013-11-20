@@ -1,5 +1,5 @@
 name    'puppetlabs-mssql'
-version '0.1.0'
+version '0.2.0'
 source  'https://github.com/puppetlabs/puppetlabs-mssql'
 author  'Puppet Labs'
 license 'Apache License 2.0'
