@@ -1,21 +1,51 @@
+# == class: MSSQL
+#
+# == Parameters
+#
+# $media
+# location of installation files.  This is a required parameter, because
+# without it, how can we install SQL server?
+#
+# == Authors
+#
+# PuppetLabs
+#
 class mssql (
   # See http://msdn.microsoft.com/en-us/library/ms144259.aspx
-  $media          = 'D:\\',
-  $instancename   = 'MSSQLSERVER',
-  $features       = 'SQL,AS,RS,IS',
-  $agtsvcaccount  = 'SQLAGTSVC',
-  $agtsvcpassword = 'Sql!@gt#2008demo',
-  $assvcaccount   = 'SQLASSVC',
-  $assvcpassword  = 'Sql!@s#2008demo',
-  $rssvcaccount   = 'SQLRSSVC',
-  $rssvcpassword  = 'Sql!Rs#2008demo',
-  $sqlsvcaccount  = 'SQLSVC',
-  $sqlsvcpassword = 'Sql!#2008demo',
-  $instancedir    = "C:\\Program Files\\Microsoft SQL Server",
-  $ascollation    = 'Latin1_General_CI_AS',
-  $sqlcollation   = 'SQL_Latin1_General_CP1_CI_AS',
-  $admin          = 'Administrator'
-) {
+  # Media is required to install
+  $media,
+  $instancename   = $mssql::params::instancename,
+  $features       = $mssql::params::features,
+  $agtsvcaccount  = $mssql::params::agtsvcaccount,
+  $agtsvcpassword = $mssql::params::agtsvcpassword,
+  $assvcaccount   = $mssql::params::assvcaccount,
+  $assvcpassword  = $mssql::params::assvcpassword,
+  $rssvcaccount   = $mssql::params::rssvcaccount,
+  $rssvcpassword  = $mssql::params::rssvcpassword,
+  $sqlsvcaccount  = $mssql::params::sqlsvcaccount,
+  $sqlsvcpassword = $mssql::params::sqlsvcpassword,
+  $instancedir    = $mssql::params::instancedir,
+  $ascollation    = $mssql::params::ascollation,
+  $sqlcollation   = $mssql::params::sqlcollation,
+  $admin          = $mssql::params::admin,
+) inherits mssql::params {
+
+  # validation
+  validate_string($media)
+  validate_string($instancename)
+  validate_string($features)
+  validate_string($agtsvcaccount)
+  validate_string($agtsvcpassword)
+  validate_string($assvcaccount)
+  validate_string($assvcpassword)
+  validate_string($rssvcaccount)
+  validate_string($rssvcpassword)
+  validate_string($sqlsvcaccount)
+  validate_string($sqlsvcpassword)
+  validate_string($instancedir)
+  validate_string($ascollation)
+  validate_string($sqlcollation)
+  validate_string($admin)
 
   User {
     ensure   => present,
