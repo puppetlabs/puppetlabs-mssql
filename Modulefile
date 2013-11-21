@@ -8,3 +8,4 @@ description 'Microsft SQL Server Installation Module for Puppet'
 project_page 'https://github.com/puppetlabs/puppetlabs-mssql'
 
 dependency 'puppetlabs/dism', '>= 0.1.0'
+dependency 'puppetlabs/stdlib', '>= 3.1.0'
