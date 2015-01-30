@@ -74,8 +74,10 @@ class mssql (
     content => template('mssql/config.ini.erb'),
   }
 
-  dism { 'NetFx3':
-    ensure => present,
+  if !(defined (Class['Dism[NetFx3]'])) {
+    dism { 'NetFx3':
+      ensure => present,
+    }
   }
 
   exec { 'install_mssql2008':
