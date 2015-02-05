@@ -1,6 +1,7 @@
 #mssql
 
-#### ***This module is no longer maintained and has been replaced by [Enterprise SQLServer](https://forge.puppetlabs.com/puppetlabs/sqlserver)***
+* This module is no longer maintained and has been replaced by
+ [Enterprise SQLServer](https://forge.puppetlabs.com/puppetlabs/sqlserver)
 
 This module installs Microsoft SQL Server 2008R2 on Windows 2008R2.
 
