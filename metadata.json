@@ -1,0 +1,15 @@
+{
+  "name": "puppetlabs-mssql",
+  "version": "0.2.1",
+  "author": "PuppetLabs",
+  "summary": "Puppet Labs Microsoft SQL Server Module",
+  "license": "Apache-2.0",
+  "source": "https://github.com/puppetlabs/puppetlabs-mssql",
+  "project_page": "https://github.com/puppetlabs/puppetlabs-mssql",
+  "issues_url": "https://github.com/puppetlabs/puppetlabs-mssql/issues",
+  "description": "Microsft SQL Server Installation Module for Puppet",
+  "dependencies": [
+    {"name":"puppetlabs/dism","version_requirement":">= 0.1.0"},
+    {"name":"puppetlabs/stdlib","version_requirement":">= 3.1.0"}
+  ]
+}
