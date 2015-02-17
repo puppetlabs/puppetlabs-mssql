@@ -74,12 +74,14 @@ class mssql (
     content => template('mssql/config.ini.erb'),
   }
 
-  dism { 'NetFx3':
-    ensure => present,
+  if !(defined (Class['Dism[NetFx3]'])) {
+    dism { 'NetFx3':
+      ensure => present,
+    }
   }
 
   exec { 'install_mssql2008':
-    command   => "${media}\\setup.exe /Action=Install /IACCEPTSQLSERVERLICENSETERMS /QS /CONFIGURATIONFILE=C:\\sql2008install.ini /SQLSVCPASSWORD=\"${sqlsvcpassword}\" /AGTSVCPASSWORD=\"${agtsvcpassword}\" /ASSVCPASSWORD=\"${assvcpassword}\" /RSSVCPASSWORD=\"${rssvcpassword}\"",
+    command   => "${media}\\setup.exe /Action=Install /IACCEPTSQLSERVERLICENSETERMS /QS /CONFIGURATIONFILE=C:\\sql2008install.ini /SQLSVCPASSWORD=\"${sqlsvcpassword}\" /AGTSVCPASSWORD=\"${agtsvcpassword}\" /ASSVCPASSWORD=\"${assvcpassword}\" /SECURITYMODE=SQL /SAPWD=\"${mssql_sa_pwd}\"  /RSSVCPASSWORD=\"${rssvcpassword}\"",
     cwd       => $media,
     path      => $media,
     logoutput => true,
